@@ -1,0 +1,107 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  outline-color: $color_bright_turquoise;
+}
+
+@include selection($color_bright_turquoise-sec, $color_mariner);
+
+
+html {
+  min-height: 100%;
+}
+
+body {
+  @include clearfix;
+  margin: 0;
+  padding: 0;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+
+  /* Adjust font size */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  /* Font varient */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  @include user-select;
+}
+
+strong {
+  font-weight: normal;
+  font-family: $font-bold;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+a,
+a *,
+a::before,
+a::after {
+  text-decoration: none;
+}
+
+a {
+  color: $color_pacific_blue;
+}
+
+ul, ol, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Headings
+-------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+h6 {
+  font-size: 1em;
+  font-family: $font-bold;
+}
+
+h5 {
+  font-size: 1.1em;
+}
+
+h4 {
+  font-family: $font-regular;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: $font-regular;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h1 {
+  font-size: 32px;
+}

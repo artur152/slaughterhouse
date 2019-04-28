@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+  font-family: "font-regular";
+  src:
+  url(../fonts/gotham-medium-webfont.ttf) format("truetype"),
+  url(../fonts/gotham-medium-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-bold";
+  src:
+  url(../fonts/gotham-bold-webfont.ttf) format("truetype"),
+  url(../fonts/gotham-bold-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-light";
+  src:
+  url(../fonts/gotham-light-webfont.ttf) format("truetype"),
+  url(../fonts/gotham-light-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-book";
+  src:
+  url(../fonts/gotham-book-webfont.ttf) format("truetype"),
+  url(../fonts/gotham-book-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-black";
+  src:
+  url(../fonts/unused-gotham/gotham-black-webfont.ttf) format("truetype"),
+  url(../fonts/unused-gotham/gotham-black-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-thin";
+  src:
+  url(../fonts/unused-gotham/gotham-thin-webfont.ttf) format("truetype"),
+  url(../fonts/unused-gotham/gotham-thin-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-ultra";
+  src:
+  url(../fonts/unused-gotham/gotham-ultra-webfont.ttf) format("truetype"),
+  url(../fonts/unused-gotham/gotham-ultra-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font-xlight";
+  src:
+  url(../fonts/unused-gotham/gotham-xlight-webfont.ttf) format("truetype"),
+  url(../fonts/unused-gotham/gotham-xlight-webfont.woff) format("woff");
+  font-style: normal;
+  font-weight: normal;
+}

@@ -1,0 +1,93 @@
+/*____________________ Colors _________________*/
+$black: #000;
+$white: #fff;
+$transparent-white: rgba(255, 255, 255, 0);
+$transparent-black: rgba(0, 0, 0, 0);
+
+$color_bunker: #151515;
+$color_shark: #292929;
+$color_tuna: #393a3f;
+$color_star_dust: #9c9c9c;
+$color_celeste: #cccccc;
+$color_gallery: #eeeeee;
+$color_mystic: #E5EAF5;
+$color_opal: #a7c6cc;
+
+$color_science_blue: #0074E4;
+$color_mariner: #1c68d7;
+$color_pacific_blue: #019ec1;
+$color_curious_blue: #1886C2;
+$color_blue_zodiac: #162d4e;
+
+$color_amaranth: #eb224a;
+$color_cinnabar: #e64545;
+$color_fuzzy_wuzzy_brown: #D04B55;
+$color_crimson: #dd0031;
+$color_sunset_orange: #ff5548;
+$color_royal_heath: #A7287F;
+
+$color_atlantis: #91de25;
+$web_orange: #FFA500;
+$color_earls_green: #feff4b;
+$color_sushi: #83b327;
+$color_chrome_white: #E8F5D4;
+$color_pine_glade: #BBD890;
+
+
+$red-darken: darken($color_amaranth,4%);
+$color_secondary: $color_shark;
+$color_primary: $color_tuna;
+
+$color_bright_turquoise: #04e6eb;
+$color_turquoise_blue: #61ebff;
+$color_bright_turquoise-sec: #01f1cf;
+
+
+/*____________________ Gradient _________________*/
+$startColor: rgba(255, 255, 255, 0.5);
+$midColor: rgba(153, 153, 153, 0.6);
+$endColor: rgba(153, 153, 153, 0.3);
+$startPercent: 1%;
+$midPercent: 5%;
+
+
+/*____________________ Fonts _________________*/
+$font-bold:     "font-bold", sans-serif;
+$font-regular:  "font-regular", sans-serif;
+$font-book:     "font-book", sans-serif;
+$font-light:    "font-light", sans-serif;
+
+$font-black:    "font-black", sans-serif;
+$font-thin:     "font-thin", sans-serif;
+$font-xlight:   "font-xlight", sans-serif;
+$font-ultra:    "font-ultra", sans-serif;
+
+/*____________________ Fonts: Google _________________*/
+$font-limetime: 'Limelight', sans-serif;
+$font-mono: 'Cutive Mono', monospace;
+$font-quicksand: 'Quicksand', sans-serif;
+
+
+/*____________________ Wrapper  _________________*/
+$page-width: 1300px;
+$small-wrap: 520px;
+
+$desktop: 1650px;
+$tablet: 1024px;
+$mobile: 768px;
+$small-mobile: 500px;
+
+
+$animation-duration: .3s;
+$rotate-line: 5deg;
+
+
+/*______ Settings for content and blur gaps  _______*/
+$size: 100%;
+$header-h: 100px;
+$gap2: 100px;
+$gap3: 50px;
+$gap1: calc(#{$header-h} + #{$gap3});
+
+$logo-default: 100px;
+$logo-small: 50px;

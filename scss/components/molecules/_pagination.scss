@@ -1,0 +1,50 @@
+.pagination-block {
+  text-align: center;
+  padding: 20px 10px;
+  margin: 50px 50px 0;
+  background: $white;
+  @include border-radius(11px);
+
+  .pager-list {
+    margin: 0;
+
+    li {
+      font-family: $font-book;
+      font-size: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 5px;
+
+      a {
+        font-family: inherit;
+        font-size: inherit;
+        color: $color_primary;
+        margin: 0;
+        display: block;
+        padding: 10px 18px;
+        @include border-radius(11px);
+
+        @include states {
+          color: $white;
+          background: rgba($color_primary, 0.2);
+         }
+      }
+
+      &.pager-current {
+        a {
+          color: $white;
+          background: $color_primary;
+        }
+      }
+
+      &.pager-next, &.pager-last, &.pager-first, &.pager-previous {
+        a {
+          font-size: 28px;
+          padding: 5px 17px;
+        }
+      }
+    }
+  }
+}

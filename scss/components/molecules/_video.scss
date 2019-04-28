@@ -1,0 +1,670 @@
+/* Video */
+
+$controls-height-smallScreen: 117px;
+$controls-height-wideScreen: 80px;
+
+.playlist-video {
+  $screen-mode: none;
+  $screen-mode: cover;
+
+  position: relative;
+  overflow: hidden;
+  padding-bottom: $controls-height-wideScreen;
+  @include border-radius(11px);
+  @include box-shadow(0, 2px, 3px, 0, rgba($color_bright_turquoise, 0.5));
+
+  // Prefixes Experimental
+  &:-moz-full-screen {
+    video {
+      object-fit: $screen-mode;
+    }
+  }
+
+  video {
+    &:-webkit-full-screen {
+      object-fit: $screen-mode;
+    }
+    &:-moz-full-screen {
+      object-fit: $screen-mode;
+    }
+    &:-ms-fullscreen {
+      object-fit: $screen-mode;
+    }
+    &:fullscreen {
+      object-fit: $screen-mode;
+    }
+
+    &::-webkit-media-controls {
+      display:none;
+    }
+    &::-webkit-media-controls-panel {
+      @include border-radius(0 0 8px 8px);
+    }
+    &::-webkit-media-controls-current-time-display,
+    &::-webkit-media-controls-time-remaining-display {
+      font-size: 18px;
+    }
+    &::-webkit-media-controls-timeline,
+    &::-webkit-media-controls-volume-slider {
+      height: 20px;
+    }
+    &::-webkit-media-controls-play-button,
+    &::-webkit-media-controls-fullscreen-button,
+    &::-webkit-media-controls-mute-button {
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 2600px) {
+      $panel-h: 70px;
+
+      &::-webkit-media-controls-enclosure {
+        height: $panel-h;
+      }
+      &::-webkit-media-controls-panel {
+        height: $panel-h;
+        background-color: rgba($black, .8);
+        @include border-radius(0 0 8px 8px);
+      }
+      &::-webkit-media-controls-timeline,
+      &::-webkit-media-controls-volume-slider {
+        height: 3vh;
+      }
+      &::-webkit-media-controls-current-time-display,
+      &::-webkit-media-controls-time-remaining-display {
+        //position: absolute;
+        //left: 70px;
+        //bottom: 25px;
+        font-size: 16px;
+        color: $white;
+        line-height: 1;
+        height: 18px;
+        pointer-events: none;
+      }
+      &::-webkit-media-controls-time-remaining-display {
+        //left: 120px;
+      }
+      &::-webkit-media-slider-container {
+      }
+      &::-webkit-media-slider-thumb {
+      }
+      &::-webkit-media-controls-play-button {
+        cursor: pointer;
+      }
+      &::-webkit-media-controls-fullscreen-button {
+        cursor: pointer;
+      }
+      &::-webkit-media-controls-mute-button {
+        cursor: pointer;
+      }
+      &::-webkit-media-controls-volume-slider {
+      }
+      &::-webkit-media-controls-timeline {
+      }
+    }
+  }
+
+  video {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      & + .play_pause {
+        &:before, &::after {
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+    }
+  }
+
+  .video-info {
+    display: none;
+    span {
+      color: $white;
+    }
+  }
+}
+
+// Overlay Play/Pause Button
+.play_pause {
+  display: block;
+  opacity: .95;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background-color: $transparent-black;
+  text-indent: -9999px;
+  box-shadow: none;
+  pointer-events: none;
+  @include play-button($round-th: 15px);
+}
+
+//Custom Controls
+.custom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.custom-controls-block {
+  $btn-size: 30px;
+
+  padding: $btn-size / 3;
+  background-color: rgba($black, .7);
+  @include transition($duration:0.5s);
+  @include clearfix;
+  @include border-radius(0 0 11px 11px);
+
+  .controls-range {
+    float: left;
+    width: calc(100% - #{$btn-size});
+    @include clearfix;
+  }
+
+  .full-screen-block {
+    float: right;
+  }
+
+  .controls-block {
+    margin-right: $btn-size / 3;
+    width: calc(50% - (#{$btn-size} / 3));
+    float: left;
+  }
+
+  .time-block {
+    color: $white;
+    float: left;
+    margin-top: 6px;
+    margin-left: $btn-size + $btn-size / 6 + 10px;
+
+    .current-time {
+      font-size: 18px;
+      line-height: 24px;
+      color: $color_crimson;
+      min-width: 100px;
+      display: inline-block;
+    }
+  }
+
+  button {
+    width: $btn-size;
+    height: $btn-size;
+    vertical-align: middle;
+    font-size: 10px;
+    padding: 0;
+    margin-bottom: 0;
+    text-indent: -9999px;
+    background-color: $transparent-black;
+    box-shadow: none;
+    @include states {
+      box-shadow: none;
+    }
+  }
+
+  input {
+    width: calc(100% - #{$btn-size} - (#{$btn-size} / 6) - 15px);
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 5px;
+    box-shadow: none;
+    background-color: $transparent-black;
+    @include border-radius(0);
+    @include states {
+      box-shadow: none;
+    }
+
+    &[type="range"] {
+      $color-range: $color_bright_turquoise;
+      $size: 24px;
+      $gap: $size/6;
+      @include appearance;
+
+      /* Webkit */
+      &::-webkit-slider-runnable-track {
+        height: $size;
+        background-color: $color-range;
+        @include appearance;
+        @include border-radius(20px);
+        @include box-shadow(1px, 2px, 2px, 1px, rgba($black, 0.5), inset);
+        @include transition;
+      }
+      &:hover::-webkit-slider-runnable-track {
+        background-color: darken($color-range, 5%);
+      }
+      &::-webkit-slider-thumb {
+        border: none;
+        height: $size;
+        width:  $size;
+        background: $white;
+        @include appearance;
+        @include box-shadow(0, 0, 5px, 1px, rgba($black, 0.5));
+        @include border-radius(50%);
+        @include transition;
+      }
+      &:hover::-webkit-slider-thumb {
+        @include scale(1.2);
+      }
+      &:focus::-webkit-slider-thumb {
+        height: $size + $gap;
+        width:  $gap;
+        margin-top: - $gap / 2;
+        @include scale(1.2);
+        @include border-radius(2px);
+      }
+
+      /* FF */
+      &::-moz-range-track {
+        height: $size;
+        background-color: $color-range;
+        @include appearance;
+        @include border-radius(20px);
+        @include box-shadow(1px, 2px, 2px, 1px, rgba($black, 0.5), inset);
+        @include transition;
+      }
+      &:hover::-moz-range-track {
+        background-color: darken($color-range, 5%);
+      }
+      &::-moz-range-thumb {
+        border: none;
+        height: $size;
+        width:  $size;
+        background: $white;
+        @include appearance;
+        @include border-radius(50%);
+        @include box-shadow(0, 0, 5px, 1px, rgba($black, 0.5));
+        @include transition;
+      }
+      &:focus::-moz-range-thumb {
+        @include scale(1.2);
+      }
+
+      /* MS */
+      &::-ms-track {
+        height: $size;
+        background-color: $color-range;
+        @include appearance;
+        @include border-radius(20px);
+        @include box-shadow(1px, 2px, 2px, 1px, rgba($black, 0.5), inset);
+        @include transition;
+      }
+      &:hover::-ms-track {
+        background-color: darken($color-range, 5%);
+      }
+      &::-ms-thumb {
+        border: none;
+        height: $size;
+        width:  $size;
+        background: $white;
+        @include appearance;
+        @include border-radius(50%);
+        @include box-shadow(0, 0, 5px, 1px, rgba($black, 0.5));
+        @include transition;
+      }
+      &:focus::-ms-thumb {
+        @include scale(1.2);
+      }
+    }
+  }
+
+  progress {
+    border: none;
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    @include border-radius(11px);
+    @include appearance;
+
+    //Chrome
+    &[value]::-webkit-progress-bar {
+      background-color: #eee;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8) inset;
+    }
+    &[value]::-webkit-progress-value {
+      @include border-radius(11px);
+      background-size: 100% 100%;
+      background-image: -webkit-linear-gradient(left, #09c, #f44);
+    }
+
+    // FF
+    &[value]::-moz-progress-bar {
+      @include border-radius(11px);
+      background-size: 100% 100%;
+      background-image: -moz-linear-gradient(180deg, #09c, #f44);
+    }
+    &[value] {
+      color: blue;
+      border: none;
+      background-color: #eee;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8) inset;
+    }
+  }
+
+  .btn--play-pause {
+    margin-right: $btn-size / 6;
+    @include play-button($play-w: 12px, $play-h: 8px, $round: 28px, $round-th: 2px);
+    @include border-radius(0);
+    &:hover {
+      @include scale(1.1);
+    }
+  }
+
+  .btn--mute {
+    margin-right: $btn-size / 6;
+    span {
+      position: relative;
+      margin-left: 2px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: $white;
+      pointer-events: none;
+
+      &:after, &:before {
+        content: '';
+        position: absolute;
+      }
+      &:before {
+        top: 50%;
+        left: 18px;
+        width: 7px;
+        height: 10px;
+        border-radius: 0 50px 50px 0;
+        border-width: 7px 7px 7px 0;
+        border-style: double;
+        border-color: $white;
+        @include transition;
+        @include translate(0%, -50%);
+        @include transform-origin(top, left);
+      }
+      &:after {
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: $transparent-white $white $transparent-white $transparent-white;
+        border-width: 10px 16px 10px 0;
+        @include translate(0%, -50%);
+      }
+    }
+
+    &:hover {
+      span:before {
+        transform: scale(1.2) translate(0%, -50%);
+      }
+    }
+  }
+
+  .btn--full-screen {
+    border: 3px solid $white;
+    @include border-radius(5px);
+
+    &:hover {
+      @include scale(1.1);
+    }
+  }
+
+  .muted_js {
+    .btn--mute {
+      span {
+        background-color: $color_crimson;
+
+        &:before {
+          border-color: $color_crimson;
+        }
+        &:after {
+          border-right-color: $color_crimson;
+        }
+      }
+    }
+
+    input {
+      &[type="range"] {
+        $color-range: $color_crimson;
+
+        &::-webkit-slider-runnable-track {
+          background-color: $color-range;
+        }
+        &::-moz-range-track {
+          background-color: $color-range;
+        }
+        &::-ms-track {
+          background-color: $color-range;
+        }
+      }
+    }
+  }
+}
+
+/** Play / Fullscreen **/
+.play_js {
+  &:hover {
+    .play_pause {
+      &:before {
+        display: none;
+      }
+      &::after {
+        opacity: .95;
+        width: 100px;
+        height: 100px;
+        border: 40px solid $white;
+        border-top: none;
+        border-bottom: none;
+        transform: translate(-50%, -50%) scale(1);
+        @include border-radius(11px);
+      }
+    }
+  }
+
+  &.fullscreen_js {
+    .play_pause {
+      &:before,
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    .custom-controls {
+      .btn--play-pause {
+        &:before {
+          display: none;
+        }
+        &::after {
+          width: 40px;
+          height: 40px;
+          border: 15px solid $white;
+          border-top: none;
+          border-bottom: none;
+          @include border-radius(0);
+        }
+      }
+    }
+  }
+
+  .play_pause {
+    &:before, &::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(3);
+    }
+  }
+
+  .custom-controls-block {
+    .btn--play-pause {
+      &:before {
+        display: none;
+      }
+      &::after {
+        width: 28px;
+        height: 28px;
+        border: 10px solid $white;
+        border-top: none;
+        border-bottom: none;
+        @include border-radius(3px);
+      }
+    }
+  }
+}
+
+.fullscreen_js {
+  $index: 2147483648;
+  position: initial;
+  padding-bottom: 0;
+  @include border-radius(0);
+
+  video {
+    &:hover {
+      & + .play_pause {
+        &:before, &::after {
+          transform: translate(-50%, -50%) scale(3);
+        }
+      }
+    }
+  }
+
+  .play_pause {
+    z-index: $index;
+    height: 100%;
+
+    &:before,
+    &:after {
+      transform: translate(-50%, -50%) scale(2.5);
+    }
+    &:before {
+      margin-left: 14px;
+    }
+  }
+
+  .custom-controls {
+    z-index: $index;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .custom-controls-block {
+      width: 98%;
+      margin-left: 1%;
+      @include border-radius(11px);
+      @include translateY(110%);
+    }
+
+    @include states {
+      .custom-controls-block {
+        @include translateY(0);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $mobile + 1px) {
+  .fullscreen_js {
+    .custom-controls {
+      height: $controls-height-smallScreen + 10px;
+    }
+
+    .custom-controls-block {
+      $btn-size: 60px;
+      padding: $btn-size / 3;
+      background-color: $black;
+
+      .controls-range {
+        width: calc(100% - #{$btn-size});
+      }
+
+      .controls-block {
+        margin-right: $btn-size / 3;
+        width: calc(50% - (#{$btn-size} / 3));
+      }
+
+      .time-block {
+        margin-left: $btn-size + $btn-size / 6 + 15px;
+        margin-top: -10px;
+        .current-time {
+          font-size: 20px;
+        }
+      }
+
+      button {
+        width: $btn-size;
+        height: $btn-size;
+      }
+
+      input {
+        margin: 0;
+        width: calc(100% - #{$btn-size} - (#{$btn-size} / 3) - 5px);
+      }
+
+      .btn--play-pause {
+        margin-right: $btn-size / 3;
+        @include play-button($play-w: 20px, $play-h: 12px, $round: 58px, $round-th: 5px);
+      }
+
+      .btn--mute {
+        margin-right: $btn-size / 3;
+        span {
+          margin-left: 8px;
+          @include scale(2);
+        }
+      }
+
+      .btn--full-screen {
+        border-width: 5px;
+        @include border-radius(11px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .playlist-video {
+    padding-bottom: $controls-height-smallScreen;
+  }
+
+  .play_pause {
+    height: calc(100% - #{$controls-height-smallScreen});
+  }
+
+  .custom-controls-block {
+    $btn-size: 30px;
+
+    .controls-range {
+      float: none;
+      width: 100%;
+    }
+    .controls-block {
+      width: 100%;
+      float: none;
+      margin-right: 0;
+      margin-bottom: 3px;
+      input {
+        margin: 0;
+        width: calc(100% - #{$btn-size} - (#{$btn-size} / 6) - 5px);
+      }
+    }
+    .time-block {
+      text-align: left;
+      float: none;
+      margin-top: 10px;
+    }
+    .full-screen-block {
+      position: absolute;
+      bottom: 10px;
+      right: 13px;
+    }
+  }
+
+  .fullscreen_js {
+    .custom-controls {
+      height: $controls-height-smallScreen + 5px;
+    }
+  }
+}

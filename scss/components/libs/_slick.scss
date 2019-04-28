@@ -1,0 +1,185 @@
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-slider{
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+
+  .slick-arrow{
+    text-indent: -9999px;
+    text-decoration: none;
+    opacity: 1;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    height: 100%;
+    width: 10vw;
+    max-width: 100px;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: rgba( $color_star_dust, .5 );
+    @include transition;
+    @include translate(0,-50%);
+
+    &:after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5vw;
+      height: 5vw;
+      margin-left: 1vw;
+      max-width: 50px;
+      max-height: 50px;
+      border-left: 5px solid rgba($white, 0.5);
+      border-bottom: 5px solid rgba($white, 0.5);
+      @include transition;
+      @include transform-origin(left, top);
+      @include rotate-translate(45deg, -50%, -50%);
+    }
+    &:hover{
+      background: rgba( $black, .5 );
+    }
+  }
+  .slick-prev{
+    left: -100px;
+    margin-left: 0;
+  }
+  .slick-next{
+    right: -100px;
+    margin-right: 0;
+    &:after{
+      margin-left: -1vw;
+      @include rotate-translate(-135deg, -50%, -50%);
+    }
+  }
+
+  .slick-dots{
+    position: absolute;
+    z-index:10;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    li{
+      list-style:none;
+      display: inline-block;
+      button{
+        @include transition;
+        padding: 0;
+        display: block;
+        width: 12px;
+        height: 12px;
+        margin: 0 4px;
+        text-indent: -9999px;
+        border: none;
+        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        outline: none;
+        background: none;
+      }
+      &.slick-active{
+        button{
+          background: $color_science_blue;
+          box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  .slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+    &.dragging {
+      cursor: pointer;
+      cursor: hand;
+    }
+  }
+  .slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    .slick-loading & {
+      visibility: hidden;
+    }
+  }
+  .slick-slide {
+    position: relative;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    padding-bottom: 50vh;
+
+    [dir="rtl"] & {
+      float: right;
+    }
+    &.slick-loading img {
+      display: none;
+    }
+    &.dragging img {
+      pointer-events: none;
+    }
+    .slick-initialized & {
+      display: block;
+    }
+    .slick-loading & {
+      visibility: hidden;
+    }
+    .slick-vertical & {
+      display: block;
+      height: auto;
+      border: 1px solid transparent;
+    }
+  }
+
+  &:hover{
+    .slick-prev{
+      opacity: 1;
+      left: 9px;
+      margin-left: 0;
+    }
+    .slick-next{
+      opacity: 1;
+      right: 9px;
+      margin-right: 0;
+    }
+  }
+}

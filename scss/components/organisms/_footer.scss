@@ -1,0 +1,150 @@
+footer{
+  display: none;
+  position: relative;
+  background: rgba($color_primary, 0.8);
+  color:  $color_celeste;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  @include clearfix;
+
+  .footer-inner{
+    @include clearfix;
+    @include wrapper;
+  }
+
+  .main-navigation{
+    position: relative;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      width: 100%;
+      border-bottom: 1px solid rgba($color_celeste, 0.5);
+    }
+    ul {
+      > li {
+        > a {
+          padding: 10px 20px;
+          &.is-active{
+            color: $color_celeste;
+          }
+          &:hover, &:focus {
+            color: $color_science_blue;
+          }
+        }
+      }
+    }
+  }
+
+  .arrow{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 68px 12px;
+    width: 40px;
+    font-size: 40px;
+    z-index: 1;
+  }
+  .arrow-previous {
+    left: 0;
+  }
+  .arrow-next {
+    right: 0;
+  }
+
+  .footer-menu{
+    ul {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      padding-top: 50px;
+      background: rebeccapurple;
+      padding-right: 30px;
+      li {
+        position: absolute;
+        display: none;
+        float: right;
+        margin-top: 35px;
+        padding-right: 30px;
+        margin-left: 40px;
+      }
+      li:first-child.active {
+        left: 0%;
+        display: block;
+        margin-left: 140px;
+        margin-top: 0;
+        padding-left: 0;
+        font-size: 56px;
+
+        & + li {
+          display: block;
+          left: 80%;
+        }
+        li.active {
+          display: block;
+          left: 85%;
+        }
+      }
+    }
+  }
+
+  .footer-content {
+    position: relative;
+    width: 400%;
+    height: calc(100% - 140px);
+    left: 0;
+    .footer-content-inner {
+      float: left;
+      width: calc(100% / 4);
+      height: 100%;
+      background: dimgray;
+      padding: 50px;
+      text-align: center;
+      padding-top: 300px;
+      font-size: 32px;
+    }
+  }
+  .navigation-items {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: 80px;
+    z-index: 1;
+
+    .navigation-item {
+      content: '';
+      display: block;
+      float: left;
+      padding: 5px;
+      opacity: 0.5;
+      &.active {
+        opacity: 1;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: white;
+      }
+    }
+  }
+  #contacts {
+    background: linear-gradient(to right, #1f1f20, #1e1e1f);
+  }
+  #license {
+    background: linear-gradient(to right, #1e1e1f, #1a1a1b);
+  }
+  #site-map {
+    background: linear-gradient(to right, #1a1a1b, #171718);
+  }
+  #site-all {
+    background: linear-gradient(to right, #171718, #141415);
+  }
+}

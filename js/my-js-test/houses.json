@@ -1,0 +1,67 @@
+{
+  "housings": [
+    {
+      "id": 1,
+      "title": "New York",
+      "image": "images/13.jpg",
+      "price_total": "55000",
+      "price_perday": "400",
+      "price_permonth": "3000",
+      "description": "Many updates completed, but a few things still left to do. Property has small fenced area with detached garage and shed. Utility basement for furnace, water heater and pump. Master bedroom and bath do not have heat",
+      "location": {
+        "latitude": "40.712784",
+        "longitude": "-74.005941"
+      },
+      "address": "New York City Hall, New York, NY 10007, USA",
+      "postdate": "01/02/1996",
+      "url": "http://slaughterhouse.local/node/3",
+      "likes": "1",
+      "social": {
+        "fb": "facebook"
+      }
+    },
+
+    {
+      "id": 2,
+      "title": "New York",
+      "image": "images/13.jpg",
+      "price_total": "55000",
+      "price_perday": "400",
+      "price_permonth": "3000",
+      "description": "Many updates completed, but a few things still left to do. Property has small fenced area with detached garage and shed. Utility basement for furnace, water heater and pump. Master bedroom and bath do not have heat",
+      "location": {
+        "latitude": "40.742970",
+        "longitude": "-73.988685"
+      },
+      "address": "202 5th Ave, New York, NY 10010, USA",
+      "postdate": "01/02/1996",
+      "url": "http://slaughterhouse.local/node/3",
+      "likes": "1",
+      "social": {
+        "fb": "facebook"
+      }
+    },
+
+    {
+      "id": 3,
+      "title": "New York",
+      "image": "images/13.jpg",
+      "price_total": "55000",
+      "price_perday": "400",
+      "price_permonth": "3000",
+      "description": "Many updates completed, but a few things still left to do. Property has small fenced area with detached garage and shed. Utility basement for furnace, water heater and pump. Master bedroom and bath do not have heat",
+      "location": {
+        "latitude": "40.736779",
+        "longitude": "-73.988685"
+      },
+      "address": "202 5th Ave, New York, NY 10010, USA",
+      "postdate": "01/02/1996",
+      "url": "http://slaughterhouse.local/node/3",
+      "likes": "1",
+      "social": {
+        "fb": "facebook"
+      }
+    }
+
+  ]
+}

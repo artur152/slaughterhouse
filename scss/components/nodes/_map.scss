@@ -1,0 +1,15 @@
+google-map {
+  height: 100vh;
+
+  & + .scroll-top-js {
+    display: block;
+  }
+}
+
+.google-map {
+  height: 100%;
+  padding-top: $header-h;
+  padding-bottom: 0;
+  position: relative;
+  @include clearfix;
+}

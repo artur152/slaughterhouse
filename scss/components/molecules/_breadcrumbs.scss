@@ -1,0 +1,49 @@
+.breadcrumbs {
+  position: relative;
+  z-index: 2;
+  background-color: $content-bg;
+  box-shadow: 0 3px 0 rgba($color-black, 0.03);
+  padding: $header-height 20px 0;
+
+  ul {
+    @extend .inner-wrap;
+    li {
+      display: inline-block;
+      font-size: 22px;
+      line-height: 74px;
+      color: $secondary-color;
+      cursor: default;
+      &:not(:last-child) {
+        &:after {
+          content: '\002F';
+          color: $text-color;
+        }
+      }
+      a {
+        color: $text-color;
+        @media (min-width: $tablet + 1) {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+
+  + #main {
+    padding-top: 0;
+  }
+  @media (max-width: $tablet) {
+    padding-top: $header-height - 20;
+  }
+  @media (max-width: $mobile) {
+    ul {
+      padding: 6px 0 10px;
+      li {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+    }
+  }
+}

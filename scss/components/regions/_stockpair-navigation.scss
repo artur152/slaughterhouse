@@ -1,0 +1,251 @@
+.region-navigation-blogstockpair {
+  .content{
+    > ul.menu {
+      position: relative;
+      width: 100%;
+
+      @media (min-width: $tablet + 1) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        @include wrapper;
+        .accordion-trigger{
+          display: none;
+        }
+        > .menu-item-home{
+          margin: 0;
+          width: 90px;
+          text-indent: -9999px;
+          background-image: url('../media/Home-Icon.png');
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+      }
+
+      a{
+        font-weight: $font-bold;
+        text-transform: uppercase;
+        display: block;
+      }
+
+      > li {
+        margin: auto;
+        position: relative;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        border-right: 1px solid $color-nile-blue;
+        &:last-child{
+          border: none;
+        }
+
+        > a {
+          font-size: 20px;
+          background-color: $color-san-juan;
+          color: $white;
+          padding: 15px;
+        }
+        @media (min-width: $tablet + 1) {
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: auto;
+
+          &:active, &:hover, &:focus{
+            > a{
+              background-color: $hover-menu;
+              color: $white;
+            }
+            > ul{
+              display: block;
+            }
+          }
+          &.active-trail{
+            > a{
+              background-color: $color-secondary;
+              color: $white;
+            }
+          }
+        }
+        > ul{
+          display: none;
+          margin: 0;
+          border: 1px solid $color-secondary-light;
+          background: $white;
+          z-index: 2;
+
+          .menu-item-home{
+            display: none !important;
+          }
+
+          @media (min-width: $tablet + 1) {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: calc(100% + 80px);
+          }
+
+          li{
+            display: block;
+            width: 100%;
+            border: none;
+            text-align: left;
+            a{
+              font-size: 16px;
+              color: $color-secondary-light;
+              background: $white;
+              padding: 15px 20px;
+              word-wrap: normal;
+              &:hover{
+                background: $color-secondary-lighter;
+                color: $color-secondary-light;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet) {
+
+  .main-nav, .drop-down-button{
+    @include transition($duration: 0.5s 0s);
+  }
+
+  .main-nav{
+    position: absolute;
+    width: 100%;
+    background: $white;
+    @include translate(0, -100%);
+
+    body.menu-drop & {
+      @include translate(0, 0);
+    }
+  }
+
+  .region-navigation{
+    .content{
+      > ul.menu{
+        flex-flow: column;
+        z-index:0;
+
+        .menu-item-home{
+          display: none !important;
+        }
+
+        > li{
+          text-align: left;
+          border: none;
+          background: $white;
+          &.expanded {
+            > a {
+              padding-right: 100px;
+              &:not(.accordion-trigger) {
+                text-indent: -9999px;
+                padding: 15px 15px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200px;
+                max-width: 30%;
+                z-index: 1;
+                @include arrow(50%);
+                &:after{
+                  margin-top: -4px;
+                }
+                @media screen and (max-width: $mobile) {
+                  padding-top: 13px;
+                  padding-bottom: 13px;
+                  &:after{
+                    margin-top: -2px;
+                    width: 15px;
+                    height: 15px;
+                    border-width: 2px 2px 0 0;
+                    right: 70px;
+                  }
+                }
+              }
+            }
+          }
+          &:hover{
+            > a {
+              background-color: $color-secondary;
+              color: $white;
+              &:not(.accordion-trigger) {
+                border-left: 2px solid $white;
+                @media screen and (max-width: $mobile) {
+                  border-left-width: 1px;
+                }
+                &:after{
+                  border-color: $white;
+                }
+              }
+            }
+          }
+          &:focus, &.active-item{
+            > a{
+              padding-left: 70px;
+              font-weight: $font-regular;
+              color: $white;
+              background-color: $color-secondary;
+              @include arrow;
+              &:after{
+                border-color: $white;
+                left: 38px;
+                right: 0;
+                margin-top: -3px;
+                @include rotate-translate(-135deg, 0, 50%);
+              }
+              &:not(.accordion-trigger) {
+                display: none;
+              }
+              @media screen and (max-width: $mobile) {
+                &:after{
+                  margin-top: -2px;
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+          }
+          > a {
+            padding: 15px 15px 15px 50px;
+            font-size: 24px;
+            position: relative;
+            display: block;
+            font-weight: $font-regular;
+            color: $color-text-secondary;
+            text-transform: uppercase;
+            background-color: $white;
+            cursor: pointer;
+            @media screen and (max-width: $mobile) {
+              padding-left: 25px;
+              padding-top: 13px;
+              padding-bottom: 13px;
+              font-size: 20px;
+            }
+          }
+          > ul{
+            width: 100%;
+            top: 100%;
+            border: none;
+            li{
+              a{
+                padding: 15px 30px;
+                font-size: 24px;
+                font-weight: $font-regular;
+                background-color: $white;
+                color: $color-text-secondary;
+                @media screen and (max-width: $mobile) {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,311 @@
+// Common
+.burger-menu {
+  .burger-menu-icon {
+    @include hamburger-button(
+        $width: 50px,
+        $height: 40px,
+        $pos-x: 10px,
+        $pos-y: 50%,
+        $thickness: 3px,
+        $bg-color: $color_science_blue,
+        $border-radius: 5px,
+        $layer-width: 30px,
+        $layer-border-radius: 1px,
+        $layer-bg-color: $white,
+        $top-layer-pos-y: 11px,
+        $middle-layer-pos-y: 19px,
+        $bottom-layer-pos-y: 27px
+    );
+    @include box-shadow($top: 0, $left: 3px, $blur: 5px, $spread: 0, $color: $color_star_dust);
+
+    span {
+      text-indent: -9999px;
+    }
+  }
+}
+
+// Desktop
+@include breakpoint-minw($mobile) {
+  nav {
+    display: flex;
+    flex-direction: row;
+
+    > ul.menu {
+      display: flex;
+      flex-direction: row;
+    }
+
+    > a {
+      font-family: $font-black;
+    }
+
+    a {
+      position: relative;
+      color: $color_secondary;
+      font-size: 16px;
+      padding: 17px 10px;
+      text-transform: capitalize;
+      display: block;
+      overflow: hidden;
+      @include states{
+        color: $color_science_blue;
+      }
+      &.active {
+        color: $color_science_blue;
+      }
+    }
+  }
+
+  .main-menu {
+    float: left;
+    padding-left: #{$header-h + 20px};
+
+    /* underline animation */
+    ul.menu {
+      > li {
+        > a {
+          @include underline-animate-right;
+        }
+        &:nth-of-type(odd) {
+          > a {
+            @include underline-animate-left;
+          }
+        }
+        &:nth-child(even) {
+          > a {
+            @include underline-animate-right;
+          }
+        }
+      }
+    }
+
+    .has_dropdown_link {
+      z-index: 1;
+    }
+
+    /* show/hide sub menus */
+    .list-item {
+      &.open {
+        .dropdown-menu {
+          @include translate(0, 0);
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px 20px 20px #{$header-h + 20px};
+    background-color: rgba($white, 0.98);
+    overflow: hidden;
+    @include translate(-100%, 0);
+    @include transition($duration:0.5s, $delay:0s);
+
+    .group-menu {
+      width: 33%;
+
+      &:not(:first-of-type) {
+        margin-left: 30px;
+      }
+
+
+      > .inner-submenu {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .leaf {
+      .nolink {
+        font-size: 14px;
+        padding: 10px;
+        display: block;
+      }
+
+      > a {
+        font-family: $font-book;
+        font-size: 14px;
+        padding: 10px;
+        @include underline-animate-right {
+          bottom: 8px;
+        }
+      }
+    }
+  }
+
+  .user-menu {
+    float: right;
+    padding-right: 20px;
+
+    // underline animation
+    > ul {
+      li {
+        &:nth-child(odd) {
+          a {
+            @include underline-animate-left;
+          }
+        }
+        &:nth-child(even) {
+          a {
+            @include underline-animate-right;
+          }
+        }
+      }
+      a {
+        &.active {
+          @include underline-animate-right;
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+@include breakpoint-maxw($mobile) {
+  .burger-menu {
+    & > nav {
+      display: none;
+    }
+  }
+
+  .main-nav {
+    position: absolute;
+    width: 100%;
+    background: $white;
+    @include translate(0, -100%);
+
+    body.menu-drop & {
+      @include translate(0, 0);
+    }
+  }
+
+  .region-navigation {
+    .content {
+      > ul.menu {
+        flex-flow: column;
+        z-index: 0;
+
+        .menu-item-home {
+          display: none !important;
+        }
+
+        > li {
+          text-align: left;
+          border: none;
+          background: $white;
+          &.expanded {
+            > a {
+              padding-right: 100px;
+              &:not(.accordion-trigger) {
+                text-indent: -9999px;
+                padding: 15px 15px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200px;
+                max-width: 30%;
+                z-index: 1;
+                @include arrow(50%);
+                &:after {
+                  margin-top: -4px;
+                }
+                @media screen and (max-width: $mobile) {
+                  padding-top: 13px;
+                  padding-bottom: 13px;
+                  &:after {
+                    margin-top: -2px;
+                    width: 15px;
+                    height: 15px;
+                    border-width: 2px 2px 0 0;
+                    right: 70px;
+                  }
+                }
+              }
+            }
+          }
+          &:hover {
+            > a {
+              background-color: $color-secondary;
+              color: $white;
+              &:not(.accordion-trigger) {
+                border-left: 2px solid $white;
+                @media screen and (max-width: $mobile) {
+                  border-left-width: 1px;
+                }
+                &:after {
+                  border-color: $white;
+                }
+              }
+            }
+          }
+          &:focus, &.active-item {
+            > a {
+              padding-left: 70px;
+              font-weight: $font-regular;
+              color: $white;
+              background-color: $color-secondary;
+              @include arrow;
+              &:after {
+                border-color: $white;
+                left: 38px;
+                right: 0;
+                margin-top: -3px;
+                @include rotate-translate(-135deg, 0, 50%);
+              }
+              &:not(.accordion-trigger) {
+                display: none;
+              }
+              @media screen and (max-width: $mobile) {
+                &:after {
+                  margin-top: -2px;
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+          }
+          > a {
+            padding: 15px 15px 15px 50px;
+            font-size: 24px;
+            position: relative;
+            display: block;
+            font-weight: $font-regular;
+            color: $color_star_dust;
+            text-transform: uppercase;
+            background-color: $white;
+            cursor: pointer;
+            @media screen and (max-width: $mobile) {
+              padding-left: 25px;
+              padding-top: 13px;
+              padding-bottom: 13px;
+              font-size: 20px;
+            }
+          }
+          > ul {
+            width: 100%;
+            top: 100%;
+            border: none;
+            li {
+              a {
+                padding: 15px 30px;
+                font-size: 24px;
+                font-weight: $font-regular;
+                background-color: $white;
+                color: $color_star_dust;
+                @media screen and (max-width: $mobile) {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+.items-loader {
+  padding: 20px;
+  display: block;
+  font-size: 20px;
+  color: $color_fuzzy_wuzzy_brown;
+  font-variant: small-caps;
+  letter-spacing: 3px;
+}
+
+.view-articles-block {
+  $width: calc(#{$size} - #{$gap2 * 2});
+  width: $width;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.view-articles {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 50px 35px;
+
+  &.filter_grid_three {
+    > .view-content {
+      .view-articles-row {
+        width: 32.3%;
+        min-height: inherit;
+        &:nth-child(2n) {
+          margin-right: 0.5%;
+        }
+      }
+    }
+  }
+  &.filter_list {
+    > .view-content {
+      flex-direction: column;
+      .view-articles-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .field-name-title {
+          h2 {
+            margin-top: 0;
+            background: none;
+          }
+        }
+        .field-name-field-image {
+          width: 40%;
+        }
+        .group-article-info {
+          position: relative;
+          height: auto;
+          width: 60%;
+        }
+        .group-article-info-inner {
+          position: relative;
+          align-self: flex-end;
+          margin-top: auto;
+        }
+        .field-name-body {
+          color: $color_primary;
+          max-height: 90px;
+          overflow: hidden;
+        }
+        .field-name-field-price {
+          color: $black;
+        }
+        .field-name-post-date {
+          color: $black;
+        }
+        .field-type-location {
+          .field-label, .field-items {
+            color: $black;
+          }
+        }
+
+        &.turn-over-js {
+          .field-name-field-image {
+            width: 100%;
+            max-height: 200px;
+            overflow: hidden;
+            img {
+              visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.view-more {
+  display: block;
+  font-family: $font-book;
+  margin: 15px auto;
+  background: $white;
+  padding: 10px 20px;
+}

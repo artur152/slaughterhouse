@@ -1,0 +1,181 @@
+.main-nav {
+  background-color: $color_blue_zodiac;
+  z-index: 2;
+  @include user-select;
+}
+
+.navigation {
+  $width: calc(#{$size} - #{$gap2 * 3});
+  width: $width;
+  max-width: 800px;
+
+  //position: absolute;
+  //@include translate(0, -50%);
+  top: calc(50% + #{$gap3});
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 50px;
+
+  .block-region-navigation {
+    ul.menu {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      width: 100%;
+      background: none;
+
+      li {
+        width: 25%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        margin: auto;
+        position: relative;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+
+        &:first-child {
+          a {
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+          }
+        }
+
+        &:last-child {
+          a {
+            border-right-width: 1px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+        }
+      }
+
+      a {
+        font-family: $font-book;
+        text-transform: capitalize;
+        display: block;
+        font-size: 18px;
+        padding: 17px 15px;
+        color: $white;
+        background: rgba($black, 0.5);
+        border: 1px solid $white;
+        border-right-width: 0;
+
+        &.active {
+          background: rgba($color_science_blue, 0.7);
+        }
+
+        @include states {
+          background: rgba($color_science_blue, 0.7);
+        }
+      }
+    }
+  }
+}
+
+.search-wrapper {
+  .search-box {
+    margin: 10px 0;
+    position: relative;
+
+    .search {
+      font-size: 20px;
+      width: 81.5%;
+      padding: 15px 20px;
+      border: none;
+
+      @include border-radius(6px 0 0 6px);
+      @include placeholder-hover($color_star_dust, $color_star_dust);
+      @include states {
+        background-color: $white;
+      }
+    }
+
+    .search-submit {
+      font-size: 10px;
+      line-height: 75px;
+      padding: 0;
+      vertical-align: top;
+      color: $white;
+      text-transform: lowercase;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 18%;
+      background-color: $color_science_blue;
+      background-image: url(../media/icons/search-main.png);
+      background-repeat: no-repeat;
+      background-position: 50% 10px;
+      -webkit-background-size: 20px auto;
+      background-size: 20px auto;
+
+      @include border-radius(0 6px 6px 0);
+      @include material-button($white, 0.6, 0.5s);
+    }
+
+    form {
+      @include states {
+        & + .results-wrapper {
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .results-wrapper {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: rgba($white, 0.9);
+    @include border-radius(6px);
+    @include transition;
+
+    .result {
+      a {
+        display: block;
+        color: $color_secondary;
+        padding: 10px;
+        padding-left: 30px;
+        border-bottom: 1px solid $white;
+        background-image: url(../media/googleMap/markerclusterer/location-icon-blue-s.png);
+        background-repeat: no-repeat;
+        -webkit-background-size: 100% auto;
+        background-size: 10px auto;
+        background-position: 10px 50%;
+        @include transition;
+        @include states {
+          color: $color_pacific_blue;
+          background-color: $color_secondary;
+        }
+      }
+    }
+  }
+
+  .search-options {
+    background: $white;
+    width: auto;
+    margin-top: 10px;
+    @include border-radius(6px);
+
+    label {
+      font-family: $font-mono;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 5px 10px;
+
+      span {
+        padding-left: 20px;
+      }
+    }
+  }
+}
