@@ -1,0 +1,29 @@
+<section class="region-content">
+    <div class="view-articles-block">
+        <div class="view-articles">
+            <div class="view-articles-row" *ngFor='let item of housings'>
+                <housing-item [housing]="item"></housing-item>
+            </div>
+        </div>
+
+        <div class="view-more-content">
+            <button class="view-more" id="view-more">viev more</button>
+        </div>
+
+        <div class="pagination-block">
+            <ul class="pager-list">
+                <li class="pager-item pager-first"><a title="Go to first page" routerLink="#">&laquo;</a></li>
+                <li class="pager-item pager-previous"><a title="Go to previous page" routerLink="#">&#8249;</a></li>
+
+                <li class="pager-item pager-current"><a title="Go to page 1" routerLink="#">1</a></li>
+                <li class="pager-item"><a title="Go to page 2" routerLink="#">2</a></li>
+                <li class="pager-item"><a title="Go to page 3" routerLink="#">3</a></li>
+                <li class="pager-item"><a title="Go to page 4" routerLink="#">4</a></li>
+                <li class="pager-item"><a title="Go to page 5" routerLink="#">5</a></li>
+
+                <li class="pager-item pager-next"><a title="Go to next page" routerLink="#">&#8250;</a></li>
+                <li class="pager-item pager-last"><a title="Go to last page" routerLink="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

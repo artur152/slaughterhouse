@@ -1,0 +1,13 @@
+ng build
+ng build --base-href https://artur152.github.io/slaughterhouseGitDeploy/
+ngh
+
+or---
+
+ng build --prod
+ng build --prod --base-href https://artur152.github.io/slaughterhouseGitDeploy/
+ngh 
+ngh -no-silent
+
+https://artur152.github.io/heroAngularGitHub/dashboard
+https://artur152.github.io/Slat/home

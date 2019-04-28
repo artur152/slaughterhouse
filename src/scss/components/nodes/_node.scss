@@ -1,0 +1,212 @@
+.group-share-links {
+  margin: 10px;
+}
+
+.field-name-url {
+  font-family: $font-book;
+  font-size: 22px;
+  word-break: break-all;
+  text-align: center;
+  border: 1px solid $color_star_dust;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background: $white;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 70px;
+}
+
+.group-social-icons {
+  text-align: center;
+  width: 100%;
+  color: $white;
+  .field {
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+    a {
+      padding: 10px;
+      margin: 5px;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      text-indent: -9999px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      -webkit-background-size: 40px auto;
+      background-size: 40px auto;
+      display: block;
+
+    }
+  }
+  .field-name-field-facebook a {
+    background-image: url(../media/social/facebook-1.png);
+  }
+  .field-name-field-twitter a {
+    background-image: url(../media/social/twitter.png);
+  }
+  .field-name-field-google-plus a {
+    background-image: url(../media/social/google-plus.png);
+  }
+}
+
+.field-name-field-like {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  z-index: 1;
+  margin: 5px;
+  @include transition;
+  a {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -webkit-background-size: 20px auto;
+    background-size: 20px auto;
+    display: block;
+    background-image: url(../media/icons/like-2.png);
+    background-color: rgba($color_science_blue, 0.9);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+}
+
+.field-name-field-backdoor {
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 36px;
+  height: 36px;
+  text-indent: -999999px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-image: url(../media/icons/share-icon-2.png);
+  background-color: rgba($color_science_blue, 0.9);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-background-size: 24px auto;
+  background-size: 24px auto;
+  cursor: pointer;
+  @include transition;
+  * {
+    display: none;
+  }
+}
+
+.group-share-links {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin-top: 0;
+  padding-bottom: 60px;
+  @include rotateY-translate(0, 0, -50%);
+
+  .group-social-icons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.field-name-field-position {
+  position: relative;
+  font-size: 14px;
+  margin-top: 5px;
+  z-index: 1;
+  .adr {
+    font-size: 0;
+    & > *:not(.fn) {
+      display: none;
+    }
+  }
+  .map-link, .location-hidden, .field-label {
+    display: none;
+  }
+  .geo, .fn {
+    font-size: 14px;
+    .latitude, .longitude {
+      display: inline-block;
+    }
+  }
+}
+
+.field-name-post-date {
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.window {
+  font-size: 22px;
+  font-weight: bold;
+  position: fixed;
+  left: 50%;
+  top: 50px;
+  z-index: 5;
+  &:first-letter {
+    color: red;
+    font-size: 25px;
+  }
+}
+
+.region-content {
+  //height: 500px!important;
+}
+
+.google-map-block {
+  //display: none!important;
+  .street-view {
+    //height: 0;
+  }
+}
+
+.views-articles-home {
+  //display: none!important;
+}
+
+header, footer {
+  //display: none!important;
+}
+
+footer {
+  //display: none!important;
+}
+
+.hero {
+  img {
+    //opacity:0.009;
+  }
+}
+
+//hide nav styles
+.navigation-- {
+  [id='block-menu-menu-nav-menu'] ul.menu li > a {
+    font-size: 8px;
+    display: block;
+    color: #000;
+    background: none;
+    border: none;
+    @include states {
+      background: none;
+    }
+  }
+  .search-wrapper {
+    .search-box, .search-options {
+      visibility: hidden;
+    }
+  }
+}

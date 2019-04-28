@@ -1,0 +1,84 @@
+@import "base/_variables";
+
+my-app,
+home,
+not-found,
+main-search,
+housings,
+housing-item,
+google-map,
+app-playlist
+{
+  display: block;
+}
+
+
+/* Body
+-------------------------------------------------------------- */
+body {
+  position: relative;
+  font-family: $font-regular;
+  color: $color_secondary;
+  background-color: $color_gallery;
+}
+
+body {
+  &.fixed {
+    header {
+      padding-bottom: 24px;
+
+      [id='magic-line'] {
+        bottom: 25px;
+      }
+
+      ul.menu {
+        &:first-child {
+          > li {
+            > a {
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+
+      [id='block-system-user-menu'], [id='block-menu-menu-login-menu'] {
+        .content {
+          > ul {
+            li {
+              &:nth-child(odd) {
+                a {
+                  //@include underline-animate-left;
+                  bottom: 0;
+                }
+              }
+              &:nth-child(even) {
+                a {
+                  //@include underline-animate-right;
+                  bottom: 0;
+                }
+              }
+            }
+            a {
+              &.active {
+                //@include underline-animate-right;
+                bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .hero {
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.page,
+.app-wrap
+{
+  min-height: 100vh;
+}

@@ -1,0 +1,28 @@
+select {
+  position: relative;
+  display: inline-block;
+  font-family: $font-mono;
+  color: $color_secondary;
+  font-size: 20px;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 6px 20px;
+  border: 1px solid $color_celeste;
+  //background: $white url("../media/select-triangle.png") no-repeat right 10px center;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: $transparent-black;
+
+  @include appearance;
+  @include transition;
+  @include border-radius(11px);
+  @include box-shadow(1px, 1px, 10px, 1px, rgba($black, 0.2));
+  @include material-button($color_science_blue, 0.5s);
+  @include states {
+    @include box-shadow(1px, 1px, 10px, 1px, rgba($black, 0.5));
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}

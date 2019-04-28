@@ -1,0 +1,1 @@
+{"version":3,"file":"housing-item.component.js","sourceRoot":"","sources":["housing-item.component.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,sCAAkD;AAOlD;IAAA;IAEA,CAAC;IADmB;QAAjB,YAAK,CAAC,SAAS,CAAC;kCAAU,KAAK;yDAAM;IAD3B,oBAAoB;QALhC,gBAAS,CAAC;YACT,QAAQ,EAAE,cAAc;YACxB,WAAW,EAAE,2DAA2D;SACzE,CAAC;OAEW,oBAAoB,CAEhC;IAAD,2BAAC;CAAA,AAFD,IAEC;AAFY,oDAAoB"}

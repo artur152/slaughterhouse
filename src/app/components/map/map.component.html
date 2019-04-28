@@ -1,0 +1,85 @@
+<section class="node-wrap google-map" id="google-map">
+    <div class="google-map-wrapper">
+
+        <!-- Map -->
+        <div id="map" class="map">
+            <div class="failed-map">Failed to load Google Map</div>
+        </div>
+
+        <!-- Street View -->
+        <div id="street-view" class="street-view"></div>
+
+        <!-- Map Components -->
+        <div id="map-control" class="map-control">
+            <label><input type="radio" name="show-hide" id="hide-poi" class="selector-control"><span>Hide</span></label>
+            <label><input type="radio" name="show-hide" id="show-poi" class="selector-control" checked><span>Show</span></label>
+        </div>
+
+        <!-- My Location -->
+        <div id="mylocation" class="mylocation"><i></i></div>
+
+        <!-- Searchbox Open -->
+        <div id="searchbox-directions-open" class="searchbox-directions open"></div>
+
+        <!-- Searchbox -->
+        <div id="google-map-sidebar" class="google-map-sidebar">
+            <div id="map-sidebar" class="map-sidebar">
+                <div id="searchbox-directions-close" class="searchbox-directions close"></div>
+                <div id="map-search" class="map-search">
+                    <div class="search-box">
+                        <form action="" method="post">
+                            <input id="main-input" class="main-input" type="text"  placeholder="Enter a location">
+                            <input id="destination-input" class="main-input destination-input" type="text"  placeholder="Enter a destination">
+                            <input id="geocode-submit" class="geocode-submit" type="button" value="Reverse Geocode">
+                        </form>
+                    </div>
+                </div>
+                <div id="distance-panel" class="distance-panel" style="direction: ltr;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+
+<div class="google-map-block">
+
+  <div class="google-map-wrapper">
+    <div class="google-map" id="map"><div class="failed-map">Failed to load response data</div></div>
+    <div id="map-sidebar-splitter" class="map-sidebar-splitter">
+      <div id="map-sidebar" class="map-sidebar">
+        <div id="searchbox-directions-close" class="searchbox-directions close"></div>
+        <div id="map-search" class="map-search">
+          <div class="search-box">
+            <form action="" method="post">
+              <input id="main-input" class="main-input" type="text"  placeholder="Enter a location">
+              <input id="destination-input" class="main-input destination-input" type="text"  placeholder="Enter a destination">
+              <input id="geocode-submit" class="geocode-submit" type="button" value="Reverse Geocode">
+            </form>
+          </div>
+        </div>
+        <div id="distance-panel" class="distance-panel" style="direction: ltr;"></div>
+      </div>
+      <div class="empty-splitter"></div>
+    </div>
+  </div>
+
+  <div id="street-view" class="street-view"></div>
+
+  <div id="map-control" class="map-control">
+    <label><input type="radio" name="show-hide" id="hide-poi" class="selector-control"><span>Hide</span></label>
+    <label><input type="radio" name="show-hide" id="show-poi" class="selector-control" checked><span>Show</span></label>
+  </div>
+
+  <div id="map-view" class="map-view">
+    <div id="more-less-map" class="map-view-controls more-less-map">more map</div>
+    <div id="hide-show-map" class="map-view-controls hide-show-map">hide map</div>
+  </div>
+
+  <div id="searchbox-directions-open" class="searchbox-directions open"></div>
+  <div id="mylocation" class="mylocation"><i></i></div>
+
+</div>
+
+-->
+

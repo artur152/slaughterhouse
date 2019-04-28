@@ -1,0 +1,55 @@
+.primary-button {
+  position: relative;
+  display: inline-block;
+  font-family: $font-light;
+  color: $color_primary;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0;
+  padding: 5px 20px;
+  background-color: $color_mystic;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: $transparent-black;
+
+  @include appearance;
+  @include transition($duration:0.5s);
+  @include border-radius(11px);
+  @include box-shadow(1px, 1px, 10px, 1px, rgba($black, 0.2));
+  @include states {
+    @include box-shadow(1px, 1px, 10px, 1px, rgba($black, 0.5));
+  }
+
+  &.active {
+    color: $white;
+    background-color: $color_science_blue;
+    @include material-button($white);
+  }
+
+  &:disabled {
+    background-color: $color_gallery;
+    color: $color_celeste;
+    cursor: auto;
+    @include states {
+      @include box-shadow-multiple(1px 1px 10px 1px rgba($black, 0.2));
+    }
+  }
+
+  &[aria-label="Toggle fullscreen view"] {
+    @include border-radius(0);
+  }
+
+  &:not(.search-submit, .active, .play_pause, .btn--play-pause, .btn--mute, .btn--full-screen) {
+    @include material-button($color_science_blue, 0.8, 0.5s);
+  }
+}
+
+button {
+  @extend .primary-button;
+}
+
+button[type='submit']{
+  @extend .primary-button;
+}

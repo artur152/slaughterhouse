@@ -1,0 +1,47 @@
+<div class="field field-name-field-image">
+    <a routerLink="#">
+        <img src="{{ housing.image }}">
+    </a>
+</div>
+<div class="group-article-info field-group-div">
+    <div class="field field-name-title">
+        <h2><a routerLink="#">{{ housing.title }}</a></h2>
+    </div>
+    <div class="group-article-info-inner field-group-div">
+        <div class="field field-name-body">
+            <div class="description">{{ housing.description }}</div>
+        </div>
+
+        <div class="field field-name-field-price">
+            <div class="field-items">
+                <div class="field-item even">{{ housing.price_permonth }}</div>
+                <div class="field-item odd">{{ housing.price_perday }}</div>
+                <div class="field-item even">{{ housing.price_total }}</div>
+            </div>
+        </div>
+
+        <div class="field field-name-field-position">
+            <span class="fn">{{ housing.address }}</span>
+        </div>
+
+        <div class="field field-name-post-date">{{ housing.postdate }}</div>
+    </div>
+</div>
+<div class="group-share-links field-group-div">
+    <div class="field field-name-url">{{ housing.url }}</div>
+    <div class="group-social-icons field-group-div">
+        <div class="field field-name-field-facebook">
+            <a routerLink="#">facebook</a>
+        </div>
+        <div class="field field-name-field-twitter">
+            <a routerLink="#">twitter</a>
+        </div>
+        <div class="field field-name-field-google-plus">
+            <a routerLink="#">google-plus</a>
+        </div>
+    </div>
+</div>
+<div class="field field-name-field-backdoor">click here</div>
+<div class="field field-name-field-like">
+    <a href="https://artur152.github.io/heroAngularGitHub/dashboard">like</a>
+</div>

@@ -1,0 +1,52 @@
+<section class="navigation">
+    <div class="region region-navigation">
+        <div class="block-region-navigation">
+            <ul class="menu">
+                <li>
+                    <a routerLink="/buy" routerLinkActive="active">buy</a>
+                </li>
+                <li>
+                    <a routerLink="/sell" routerLinkActive="active">sell</a>
+                </li>
+                <li>
+                    <a routerLink="/rent" routerLinkActive="active">rent</a>
+                </li>
+                <li>
+                    <a routerLink="/map" routerLinkActive="active">map</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="search-wrapper">
+        <div class="search-box">
+            <form action="">
+                <input type="text" class="search" placeholder="search...">
+                <button type="button" class="search-submit">search</button>
+                <!--<input type="submit" class="search-submit" value="Search">-->
+            </form>
+
+            <div class="results-wrapper">
+                <div class="result"><a href="">202 2TH AVE, NEW YORK, NY</a></div>
+                <div class="result"><a href="">185 GREEN AVE, NEW YORK, NY</a></div>
+                <div class="result"><a href="">15 35TH AVE, NEW YORK, NY </a></div>
+                <div class="result"><a href="">1103 454 AVE, NEW YORK, NY </a></div>
+            </div>
+        </div>
+        <div class="search-options">
+            <form action="">
+                <label>
+                    <input type="checkbox" checked="">
+                    <span>Short term</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span (click)="showAlert()">Long term</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Both</span>
+                </label>
+            </form>
+        </div>
+    </div>
+</section>

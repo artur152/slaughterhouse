@@ -1,0 +1,18 @@
+.hero {
+  height: 100%;
+  width: 100%;
+  //position: fixed;
+
+  .hero-cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: none;
+    @include translate(-50%, -50%);
+    @include transition;
+  }
+}
+

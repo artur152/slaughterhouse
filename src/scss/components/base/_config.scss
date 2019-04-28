@@ -1,0 +1,143 @@
+/*
+$elevated-blue: blue;
+$charcoal: red;
+
+@mixin key{
+
+}
+
+@mixin btn($button-key) {
+  $button: map-get($buttons, $button-key);
+
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  appearance: none;
+  color: key($button, color);
+  transition: all 0.2s;
+  &:after {
+    transition: all 0.2s;
+  }
+
+  $padding-top: 0;
+  $padding-side: 0;
+
+  @if (map-has-key($button, size)) {
+    @if(key($button, size) == default) {
+      $padding-top: 12px;
+      $padding-side: 20px;
+    }
+    @if(key($button, size) == square) {
+      $padding-top: 24px;
+      $padding-side: 24px;
+      font-size: 22px;
+    }
+  }
+  padding: $padding-top $padding-side;
+
+  @if (map-has-key($button, background)) {
+    background: key($button, background);
+  }
+
+  @if (map-has-key($button, border)) {
+    border: 3px solid key($button, border);
+  }
+
+  @if (key($button, arrow) == slide) {
+    position: relative;
+    $arrow-shift: 11px;
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(-20px, -50%);
+      font-size: 12px;
+      opacity: 0;
+    }
+    &:hover {
+      padding-left: $padding-side - $arrow-shift;
+      padding-right: $padding-side + $arrow-shift;
+      &:after {
+        opacity: 1;
+        transform: translate(-($arrow-shift), -50%);
+      }
+    }
+  } @else if (key($button, arrow) == simple) {
+    &:after {
+      color: $charcoal;
+      margin-left: 10px;
+      transform: translate(-5px, 0);
+    }
+    &:hover {
+      &:after {
+        transform: translate(0, 0);
+      }
+    }
+  } @else if (key($button, arrow) == square) {
+    position: relative;
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 24px;
+    }
+  }
+
+  @include selector-group(active) {
+    @if (map-has-key($button, active-border)) {
+      border-color: key($button, active-border);
+    }
+    @if (map-has-key($button, active-background)) {
+      background: key($button, active-background);
+    }
+    @if (map-has-key($button, active-color)) {
+      color: key($button, active-color);
+    }
+  }
+}
+
+/// Button config
+$buttons: (
+        _base: (
+                background: transparent,
+                color: $elevated-blue,
+                border: $elevated-blue,
+                active-background: transparent,
+                active-color: $elevated-blue,
+                active-border: $elevated-blue
+        ),
+        ghost: (
+                extend: _base,
+                arrow: slide,
+                padding: default
+        ),
+        simple: (
+                color: $elevated-blue,
+                arrow: simple
+        ),
+        solid: (
+                background: $elevated-blue,
+                color: $white,
+                border: $elevated-blue,
+                arrow: slide,
+                size: default
+        ),
+        square: (
+                background: $elevated-blue,
+                color: $white,
+                arrow: square,
+                size: square
+        ),
+);
+
+.block-bundle-cta {
+  .field--type-link {
+    a {
+      @include btn(square);
+    }
+  }
+}
+*/
+

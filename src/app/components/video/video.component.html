@@ -1,0 +1,65 @@
+<section class="node-wrap app-playlist">
+    <div class="blur-wrap"></div>
+    <div class="blur"></div>
+
+    <div class="playlist-wrap">
+        <div class="palylist-items">
+
+            <div class="palylist-item" *ngFor="let item of videos">
+                <div class="playlist-video">
+                    <video class="video" id="video-{{ item.id }}" preload="metadata" title="{{ item.title }}">   <!-- controls   poster="media/videos/cap2.JPG"  -->
+                        <source src=" {{ item.url }} " type="video/mp4"/>
+                        <!--<source src="media/videos/brooklyn to manhattan.mp4" type="video/mp4"/>-->
+                        <!--<source src="media/videos/ny.mp4" type="video/mp4" />-->
+                        <!--<source src="media/videos/SanFrancisco.mp4" type="video/mp4" />-->
+                        <!--<audio src=""></audio>-->
+                        <!--<track kind="subtitles" src="" srclang="en" label="English" default>-->
+                    </video>
+
+                    <button class="play_pause">play/pause</button>
+
+                    <div class="custom-controls">
+                        <div class="custom-controls-block">
+                            <div class="controls-range">
+
+                                <div class="play-block controls-block">
+                                    <button type="button" class="btn--play-pause">play/pause</button>
+                                    <input type="range" class="btn--seek-bar" value="0">
+                                </div>
+
+                                <div class="volume-block controls-block">
+                                    <button type="button" class="btn--mute"><span></span></button>
+                                    <input type="range" class="btn--volume-bar" min="0" max="1" step="0.01" value="0">
+                                </div>
+
+                                <div class="time-block">
+                                    <span class="current-time">
+                                      <span class="hours-curr">00</span><span>:</span>
+                                      <span class="minutes-curr">00</span><span>:</span>
+                                      <span class="seconds-curr">00</span>
+                                    </span>
+
+                                    <span> / </span>
+
+                                    <span class="duration-time">
+                                      <span class="hours">00</span><span>:</span>
+                                      <span class="minutes">00</span><span>:</span>
+                                      <span class="seconds">00</span>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="full-screen-block">
+                                <button type="button" class="btn--full-screen">fullscreen</button>
+                            </div>
+
+                            <!--<progress id='progress-bar' max='100' value='40'>40% played</progress>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
